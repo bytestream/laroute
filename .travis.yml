@@ -8,6 +8,7 @@ php:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
+  - npm i
 
 script:
   - vendor/bin/phpunit
