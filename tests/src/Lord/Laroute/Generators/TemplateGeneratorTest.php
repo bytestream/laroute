@@ -4,7 +4,7 @@ namespace Lord\Laroute\Generators;
 
 use Mockery;
 
-class TemplateGeneratorTest extends \PHPUnit_Framework_TestCase
+class TemplateGeneratorTest extends \PHPUnit\Framework\TestCase
 {
     protected $compiler;
 
@@ -12,7 +12,7 @@ class TemplateGeneratorTest extends \PHPUnit_Framework_TestCase
 
     protected $generator;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -63,7 +63,7 @@ class TemplateGeneratorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($actual, $filePath);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }
