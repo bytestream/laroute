@@ -105,9 +105,8 @@ class LarouteGeneratorCommand extends Command
         $absolute   = $this->option('empty') ? false : $this->config->get('laroute.absolute', false);
         $rootUrl    = $this->option('empty') ? '' : $this->config->get('app.url', '');
         $prefix     = $this->option('empty') ? '' : $this->config->get('laroute.prefix', '');
-        $params     = json_encode($this->option('empty') ? [] : $this->config->get('laroute.params', []));
 
-        return compact('namespace', 'routes', 'absolute', 'rootUrl', 'prefix', 'params');
+        return compact('namespace', 'routes', 'absolute', 'rootUrl', 'prefix');
     }
 
 

@@ -8,7 +8,6 @@
             rootUrl: '$ROOTURL$',
             routes : $ROUTES$,
             prefix: '$PREFIX$',
-            params: $PARAMS$,
 
             route : function (name, parameters, route) {
                 route = route || this.getByName(name);
@@ -44,7 +43,6 @@
             },
 
             replaceNamedParameters : function (uri, parameters) {
-                parameters = extend({}, this.params, parameters);
                 uri = uri.replace(/\{(.*?)\??\}/g, function(match, key) {
                     if (parameters.hasOwnProperty(key)) {
                         var value = parameters[key];
@@ -125,18 +123,6 @@
             return '<a href="' + url + '" ' + attributes + '>' + title + '</a>';
         };
 
-        var extend = function (defaultObj, newObj) {
-            for (var i=1; i<arguments.length; i++) {
-                for (var key in arguments[i]) {
-                    if (arguments[i].hasOwnProperty(key)) {
-                        arguments[0][key] = arguments[i][key];
-                    }
-                }
-            }
-
-            return arguments[0];
-        };
-
         return {
             // Generate a url for a given controller action.
             // $NAMESPACE$.action('HomeController@getIndex', [params = {}])
@@ -208,12 +194,6 @@
             // $NAMEPSACE$.set_prefix('my-prefix')
             set_prefix : function (prefix) {
                 routes.prefix = prefix;
-            },
-
-            // Add a default parameter.
-            // $NAMESPACE$.set_default_params([])
-            set_default_params : function (json) {
-                routes.params = json;
             }
 
         };
